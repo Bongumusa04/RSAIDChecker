@@ -1,8 +1,9 @@
 <template>
-    <lightning-card title="SA ID Checker" icon-name="custom:custom63">
+    <lightning-card title="RSA ID Checker" icon-name="custom:custom63">
         <p class="description">
             Enter your South African ID Number to validate and explore public holidays based on your birthdate.
         </p>
+        
         <lightning-input
             label="RSA ID Number"
             type="text"
@@ -10,6 +11,7 @@
             onchange={handleInputChange}
             class="input-field"
         ></lightning-input>
+        
         <lightning-button
             label="Search"
             variant="brand"
@@ -17,8 +19,39 @@
             class="search-button"
             disabled={isButtonDisabled}
         ></lightning-button>
+        
         <template if:true={errorMessage}>
             <p class="error-message">{errorMessage}</p>
+        </template>
+
+        <template if:true={result}>
+            <div class="result-container slds-m-top_medium">
+                <template if:true={result.isValid}>
+                    <p><strong>Status:</strong> Valid</p>
+                    <p><strong>Message:</strong> {result.message}</p>
+                    <p><strong>Birth Date:</strong> {result.birthDate}</p>
+                    <p><strong>Gender:</strong> {result.gender}</p>
+                    <p><strong>Is Citizen:</strong> 
+                        <template if:true={result.isCitizen}>Yes</template>
+                        <template if:false={result.isCitizen}>No</template>
+                    </p>
+                    
+                    <!-- Display Public Holidays -->
+                    <template if:true={result.holidays}>
+                        <p><strong>Public Holidays in {result.birthYear}:</strong></p>
+                        <ul>
+                            <template for:each={result.holidays} for:item="holiday">
+                                <li key={holiday}>{holiday}</li>
+                            </template>
+                        </ul>
+                    </template>
+                </template>
+                
+                <template if:false={result.isValid}>
+                    <p><strong>Status:</strong> Invalid</p>
+                    <p><strong>Message:</strong> {result.message}</p>
+                </template>
+            </div>
         </template>
     </lightning-card>
 </template>
