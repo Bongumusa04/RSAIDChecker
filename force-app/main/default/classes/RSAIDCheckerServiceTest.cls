@@ -21,31 +21,33 @@
  */
 @isTest
 public class RSAIDCheckerServiceTest {
+    
+    
     @isTest
     static void testInvalidLength() {
         Map<String, Object> result = RSAIDCheckerService.validateID('123');
-        System.assertEquals(false, result.get('isValid'));
+        System.assert(false, result.get('isValid'));
         System.assertEquals('ID number must be a 13-digit numeric value.', result.get('message'));
     }
 
     @isTest
     static void testInvalidCharacters() {
         Map<String, Object> result = RSAIDCheckerService.validateID('123ABC4567890');
-        System.assertEquals(false, result.get('isValid'));
+        System.assert(false, result.get('isValid'));
         System.assertEquals('ID number must be a 13-digit numeric value.', result.get('message'));
     }
 
     @isTest
     static void testInvalidDate() {
         Map<String, Object> result = RSAIDCheckerService.validateID('0013325678901');
-        System.assertEquals(false, result.get('isValid'));
+        System.assert(false, result.get('isValid'));
         System.assertEquals('Invalid date of birth in ID number.', result.get('message'));
     }
 
     @isTest
     static void testValidID() {
-        Map<String, Object> result = RSAIDCheckerService.validateID('0001015009086');
-        System.assertEquals(true, result.get('isValid'));
+        Map<String, Object> result = RSAIDCheckerService.validateID('0001255248088');
+        System.assert(true, result.get('isValid'));
         System.assertEquals('ID number is valid.', result.get('message'));
     }
 }

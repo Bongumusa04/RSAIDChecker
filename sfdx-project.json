@@ -1,12 +1,21 @@
 {
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "62.0",
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true
+      "default": true,
+      "package": "myPackage",
+      "versionName": "ver 1.0",
+      "versionNumber": "1.0.0.NEXT",
+      "dependencies": [],
+      "objects": ["force-app/main/default/objects"]
     }
   ],
-  "name": "RSAIDChecker",
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "62.0"
+  "dependencies": [],
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "packageAliases": {}
 }
