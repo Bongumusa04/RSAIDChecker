@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="SA ID Checker" icon-name="custom:custom63">
+        <p class="description">
+            Enter your South African ID Number to validate and explore public holidays based on your birthdate.
+        </p>
+        <lightning-input
+            label="RSA ID Number"
+            type="text"
+            placeholder="Enter 13-digit RSA ID"
+            onchange={handleInputChange}
+            class="input-field"
+        ></lightning-input>
+        <lightning-button
+            label="Search"
+            variant="brand"
+            onclick={handleSearch}
+            class="search-button"
+            disabled={isButtonDisabled}
+        ></lightning-button>
+        <template if:true={errorMessage}>
+            <p class="error-message">{errorMessage}</p>
+        </template>
+    </lightning-card>
+</template>

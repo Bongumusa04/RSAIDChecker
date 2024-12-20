@@ -1,0 +1,52 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.slds-card {
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 12px;
+    background: #ffffff;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slds-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.description {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.input-field {
+    margin-bottom: 1.5rem;
+}
+
+.search-button {
+    margin-top: 1rem;
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    color: #ffffff;
+    transition: background 0.3s ease;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+
